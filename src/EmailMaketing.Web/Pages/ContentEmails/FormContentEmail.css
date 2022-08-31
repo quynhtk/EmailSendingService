@@ -1,0 +1,419 @@
+﻿body {
+    background-color: #f3f6f9 !important;
+}
+.container form{
+    display: flex;
+    margin-top: 10px;
+}
+.container .left-container{
+    flex: 0.7;
+    border: 1px solid silver;
+    margin-left: 20px;
+    border-radius: 5px;
+    max-height: 850px;
+    background-color: white;
+}
+.left-container h6{
+    padding: 10px 0 20px 15px;
+    border-bottom: 1px solid silver;
+}
+.left-container .add-email{
+    text-align: center;
+    max-height: 630px;
+}
+.left-container  input{
+
+    margin: 20px 15px 0;
+    font-weight: 600;
+    border: 1px solid silver;
+    border-radius: 3px;
+    padding: 10px 80px;
+    background-color: white;
+}
+    .left-container  input:hover {
+        background-color: #F8F8FF;
+    }
+
+.container .right-container {
+    flex: 2;
+    border: 1px solid silver;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    max-height: 850px;
+    background-color: white;
+    pointer-events: none;
+}
+.right-container .subject p{
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 1px;
+}
+.right-container .function p{
+    font-size: 14px;
+    font-weight: 600;
+}
+.right-container .btn-function{
+    margin-top: 37px;
+}
+.right-container .subject input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid silver;
+    -webkit-appearance: none;
+    margin-bottom: 15px;
+}
+.right-container input:focus {
+    outline: none;
+}
+.right-container .function{
+    border-bottom: 1px solid silver;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.function .flex-column{
+    display: flex;
+    flex-direction: column;
+}
+.right-container .email {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid silver;
+}
+.email input {
+    border: 1px solid silver;
+    border-radius: 4px;
+    padding: 8px 10px;
+    min-width: 250px;
+}
+.content textarea {
+    margin-top: 10px;
+    width: 100%;
+    height: 300px;
+    border: 1px solid silver;
+    padding: 20px;
+}
+textarea:focus {
+    outline: none;
+    padding: 20px;
+}
+.right-container .feature{
+    padding-bottom: 50px;
+}
+.btn-function .btn{
+    width: 70px;
+    height: 40px;
+    border: 1px solid silver;
+}
+.preview .items-preview {
+    position: relative;
+}
+.items-preview .preview-send{
+    border: 1px solid silver;
+    position: absolute;
+    background-color: white;
+    width: 350px;
+    padding: 10px;
+    bottom: 137%;
+    display: none;
+    z-index: 3;
+}
+    .items-preview .preview-send::before {
+        width: 24px;
+        height: 24px;
+        content: "";
+        border: 1px solid silver;
+        position: absolute;
+        top: 100%;
+        transform: rotate(45deg);
+        left: 0;
+        right: 0;
+        margin: -12px auto 0;
+        background-color: white;
+        border-left: none;
+        border-top: none;
+    }
+.preview-send .preview-email {
+    width: 100%;
+    padding: 7px 10px;
+    border: 1px solid silver;
+    border-radius: 4px;
+}
+.preview-send .preview-btn {
+    margin-top: 20px;
+    margin-bottom: 6px;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #477e8d;
+    color: white;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: #F8F8FF;
+}
+    .preview button{
+        padding: 7px 14px;
+        border: 1px solid silver;
+        background-color: white;
+        border-radius: 4px;
+    }
+    .preview button i{
+        margin-right: 10px;
+    }
+.Schedule input {
+    padding: 5px 15px;
+    border: 1px solid silver;
+    width: 200px;
+    margin-top: 2px;
+
+}
+.summary-email {
+    display: flex;
+    padding: 10px 10px 0 10px;
+    border: 1px solid silver;
+    border-radius: 3px;
+    margin: 0 10px 10px 10px;
+    cursor: pointer;
+}
+.summary-email .left{
+    text-align: left;
+    flex: 3;
+    padding: 0;
+}
+    .summary-email .left p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 170px;
+        line-height: 20px;
+        padding: 0;
+        font-size: 15px;
+        font-weight: 600;
+
+    }
+    .left span{
+        font-size: 12px;
+    }
+.summary-email .right{
+    flex: 1;
+    padding: 0;
+    margin: 0;
+}
+.right p {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 3px 5px;
+    margin-top: 4px;
+    border: 1px solid silver;
+}
+#overlay{
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0);
+    z-index: 2;
+}
+
+span.msg,
+span.choose {
+    color: #555;
+    padding: 5px 0 10px;
+    display: inherit
+}
+
+.container1 {
+    text-align: center
+}
+
+/*Styling Selectbox*/
+.email .dropdown {
+    width: 250px;
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgb(204, 204, 204);
+    transition: all .5s ease;
+    position: relative;
+    font-size: 14px;
+    color: #474747;
+    height: 100%;
+    text-align: left;
+    border: 1px solid silver;
+}
+
+    .email .dropdown .select {
+        cursor: pointer;
+        display: block;
+        padding: 10px
+    }
+
+        .email .dropdown .select > i {
+            font-size: 13px;
+            color: #888;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+            float: right;
+            line-height: 20px
+        }
+
+    .email .dropdown:hover {
+        box-shadow: 0 0 4px rgb(204, 204, 204)
+    }
+
+    .email .dropdown:active {
+        background-color: #f8f8f8
+    }
+
+    .email.dropdown.active:hover,
+    .email.dropdown.active {
+        box-shadow: 0 0 4px rgb(204, 204, 204);
+        border-radius: 2px 2px 0 0;
+        background-color: #f8f8f8
+    }
+
+        .email.dropdown.active .select > i {
+            transform: rotate(-90deg)
+        }
+
+    .dropdown .dropdown-menu1 {
+        position: absolute;
+        background-color: #fff;
+        left: 0;
+        margin-top: 1px;
+        box-shadow: 0 1px 2px rgb(204, 204, 204);
+        border-radius: 0 1px 2px 2px;
+        overflow: hidden;
+        display: none;
+        max-height: 144px;
+        overflow-y: auto;
+        z-index: 2;
+    }
+
+        .dropdown .dropdown-menu li {
+            padding: 10px;
+            transition: all .2s ease-in-out;
+            cursor: pointer
+        }
+
+.dropdown .dropdown-menu {
+    padding: 0;
+    list-style: none
+}
+
+        .dropdown .dropdown-menu li:hover {
+            background-color: #f2f2f2
+        }
+
+        .dropdown .dropdown-menu li:active {
+            background-color: #e2e2e2
+        }
+
+.toemail #to-recipients {
+    width: 270px;
+    height: 127px;
+    background-color: white;
+    border: 1px solid silver;
+    border-radius: 2px;
+}
+.toemail .recepients {
+    text-decoration: underline;
+    color: #008489;
+    margin-left: 25px;
+    pointer-events: none;
+}
+    .toemail .recepients:hover {
+        color: #00676B;
+    }
+.submit-form{
+    margin-top: 15px;
+    text-align: right;
+}
+    .submit-form input {
+        margin-left: 15px;
+        width: 170px;
+        height: 45px;
+        border: 1px solid silver;
+        border-radius: 4px;
+        background-color: white;
+        color: white;
+        background-color: #00676B;
+    }
+.item-email {
+    padding: 2px 10px;
+    width: 100%;
+    background-color: #f3f6f9;
+    margin-bottom: 7px;
+    border: 1px solid silver;
+    border-radius: 2px;
+    position: relative;
+    align-items: center;
+}
+.input-file-container {
+    position: relative;
+    width: 125px;
+}
+.input-file-trigger {
+    display: block;
+    padding: 10px 10px;
+    background: #39D2B4;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all .4s;
+    cursor: pointer;
+}
+.input-file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 225px;
+    opacity: 0;
+    padding: 14px 0;
+    cursor: pointer;
+}
+.container-file{
+    width: 100%;
+    margin-left: 20px;
+    border: 1px solid silver;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+.item-file {
+    padding: 3px 40px 3px 3px ;
+    background-color: #f3f6f9;
+    border: 1px solid silver;
+    border-radius: 2px;
+    position: relative;
+    align-items: center;
+    font-size: 13px;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+.fa-times {
+    margin: 2px 3px 0 14px;
+    position: absolute;
+    right: 0;
+    justify-content: right;
+    padding: 2px 3px;
+    cursor: pointer;
+}
+/*.fa-times {
+    margin: 1px 3px 0 0;
+    position: absolute;
+    right: 0;
+    justify-content: right;
+    padding: 2px 3px;
+    cursor: pointer;
+}*

@@ -1,0 +1,29 @@
+﻿@page
+@model EmailMaketing.Web.Pages.Customers.CreateRoleModalModel
+@using EmailMaketing.Localization
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@inject IStringLocalizer<EmailMaketingResource> L
+@{
+    Layout = null;
+}
+<abp-card>
+    <form method="post" asp-page="/Customers/EditRoleModal">
+        <abp-modal>
+            <abp-modal-header></abp-modal-header>
+            <abp-modal-body>
+                <abp-input asp-for="CustomerRole.Id" />
+                <abp-input asp-for="CustomerRole.UserID" />
+                <abp-input asp-for="CustomerRole.Password"/>
+                <abp-input asp-for="CustomerRole.UserName"/>
+                <abp-input asp-for="CustomerRole.FullName"/>
+                <abp-input asp-for="CustomerRole.PhoneNumber"/>
+                <abp-input asp-for="CustomerRole.Email"/>
+                <abp-input asp-for="CustomerRole.Type"/>
+                <abp-Select asp-for="CustomerRole.RoleID" asp-items="Model.Roles"></abp-Select>
+            </abp-modal-body>
+            <abp-modal-footer buttons="@(AbpModalButtons.Cancel| AbpModalButtons.Save)">
+            </abp-modal-footer>
+        </abp-modal>
+    </form>
+</abp-card>

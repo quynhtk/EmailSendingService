@@ -1,0 +1,26 @@
+{
+  "culture": "en",
+  "texts": {
+    "Menu:Home": "Home",
+    "Welcome": "Welcome",
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "Menu:Customers": "Customer",
+    "Menu:SenderEmails": "Sender Email",
+    "Menu:ContentEmails": "Content Email",
+    "Menu:EmailIsSend": "Sent",
+    "Menu:NewLetter": "New",
+    "Permission:EmailMaketing": "Email Maketing",
+    "Permission:Customers": "Customer Management",
+    "Permission:Customers.Create": "Creating new customer",
+    "Permission:Customers.Edit": "Editing the customers",
+    "Permission:Customers.Delete": "Deleting the customers",
+    "Permission:SenderEmails": "SenderEmails Management",
+    "Permission:SenderEmails.Create": "Creating new senderEmails",
+    "Permission:SenderEmails.Edit": "Editing the senderEmails",
+    "Permission:SenderEmails.Delete": "Deleting the senderEmails",
+    "Permission:ContentEmails": "Letter Management",
+    "Permission:ContentEmails.Create": "Creating new Letter",
+    "Permission:ContentEmails.Edit": "Editing the Letter",
+    "Permission:ContentEmails.Delete": "Deleting the Letter"
+  }
+}

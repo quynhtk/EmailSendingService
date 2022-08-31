@@ -1,0 +1,54 @@
+﻿@page
+@model EmailMaketing.Web.Pages.ContentEmails.SendEmailModalModel
+@using EmailMaketing.Localization
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<EmailMaketingResource> L
+@section scripts
+    {
+    <abp-script src="/Pages/ContentEmails/SendEmailModal.js" />
+    <link href="/Pages/ContentEmails/SenderEmailModal.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('.summernote').summernote();
+        });
+    </script>
+    
+}
+<form method="post" asp-page="/ContentEmails/SendEmailModal" enctype="multipart/form-data">
+    <abp-card>
+        <abp-card-header>
+            <abp-row>
+                <abp-card-title>@L["New Letter"]</abp-card-title>
+            </abp-row>
+        </abp-card-header>
+        <abp-card-body>
+            <abp-row>
+                <abp-column>
+                    <abp-input asp-for="ContentEmail.Name"></abp-input>
+                    <abp-input type="text" id="tag-input1" asp-for="ContentEmail.RecipientEmail"></abp-input>
+                    <abp-input asp-for="ContentEmail.Subject"></abp-input>
+                    <abp-input asp-for="ContentEmail.Body" class="summernote"></abp-input>
+                    <abp-input asp-for="FileUpload" type="file"></abp-input>
+                </abp-column>
+            </abp-row>
+            <abp-row>
+                <abp-column>
+                    <input type="checkbox" id="ShowTime"> @L["Schedule"]</input>
+                    <input class="form-control" name="dateschedule" type="datetime-local" value="@Model.ContentEmail.Day" disabled />
+                    <script type="text/javascript">
+                        var today = new Date().toISOString().slice(0, 16);
+                        document.getElementsByName("dateschedule")[0].min = today;
+                    </script>
+                </abp-column>
+            </abp-row>
+        </abp-card-body>
+        <abp-card-footer id="save" style="text-align:right">
+            <button data-busy-text="Sending..." class="btn btn-primary bkgrnd-cyan save-details" type="submit" name="save-details" style="text-align:left">@L["Send Now"]</button>
+            <button type="submit" asp-page-handler="ScheduleJob" class="btn btn-primary" id="ScheduleJob" disabled >@L["Schedule"]</button>
+        </abp-card-footer>
+    </abp-card>
+</form>
+

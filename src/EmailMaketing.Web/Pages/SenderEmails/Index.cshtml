@@ -1,0 +1,78 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Localization
+@using EmailMaketing.Localization
+@using EmailMaketing.Permissions
+@using Volo.Abp.Users
+@model EmailMaketing.Web.Pages.SenderEmails.IndexModel
+@inject IAuthorizationService AuthorizationService
+@inject IHtmlLocalizer<EmailMaketingResource> L
+@inject ICurrentUser CurrentUser
+@section scripts{
+    <abp-script src="/Pages/SenderEmails/Index.js" />
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["Sender Email"]</abp-card-title>
+            </abp-column>
+        </abp-row>
+        <abp-row>
+            <abp-column size-md="_7">
+                <abp-row>
+                    <abp-column size-sm="_8">
+                        <form method="post" asp-page-handler="Import" enctype="multipart/form-data">
+                            <abp-row>
+                                <abp-column size-sm="_7">
+                                    <input id="ImportExcel" type="file" name="excel" class="form-control" accept=".xls, .xlsx" />
+                                </abp-column>
+                                <abp-column size-sm="_5">
+                                    <abp-button id="ImportExcelButton" button-type="Primary" type="submit" disabled="true" >
+                                        <i class="fa fa-upload" aria-hidden="true"></i> @L["Upload Excel"]
+                                    </abp-button>
+                                </abp-column>
+                            </abp-row>
+                        </form>
+                    </abp-column>
+                    <abp-column size-sm="_4" style="text-align:left;">
+                        <form method="post" asp-page-handler="Export">
+                            <abp-button button-type="Primary" type="submit">
+                                <i class="fa fa-file" aria-hidden="true"></i> @L["Template Excel"]
+                            </abp-button>
+                        </form>
+                    </abp-column> 
+                </abp-row>
+            </abp-column>
+                   
+            <abp-column size-md="_5" class="text-end">
+                @if (await AuthorizationService.IsGrantedAsync(EmailMaketingPermissions.SenderEmails.Create))
+            {
+                <abp-button id="NewSenderEmailButton"
+                        text="@L["New Sender Email"].Value"
+                        icon="plus"
+                        button-type="Primary" />
+            }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="SenderEmailTable"></abp-table>
+    </abp-card-body>
+    @if (@Model.emailError.Count() > 0)
+    {
+        <abp-card-footer>
+            <table>
+                <tr><th> Email Error</th> </tr>
+                @foreach (var item in @Model.emailError)
+                {
+                    <tr style="width:auto">
+                        <td>@item.Email</td>
+                    </tr>
+                }
+            </table>
+        </abp-card-footer>
+    }
+</abp-card>

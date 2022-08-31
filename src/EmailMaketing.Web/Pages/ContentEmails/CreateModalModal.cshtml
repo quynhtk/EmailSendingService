@@ -1,0 +1,36 @@
+﻿@page
+@model EmailMaketing.Web.Pages.ContentEmails.CreateModalModel
+@using EmailMaketing.Localization
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<EmailMaketingResource> L
+@section scripts
+    {
+    <abp-script src="/Pages/ContentEmails/CreateModal.js" />
+}
+    <form method="post" asp-page="/ContentEmails/CreateModal" enctype="multipart/form-data">
+        <abp-card>
+            <abp-card-header>
+                <abp-row>
+                    <abp-card-title>@L["New Letter"]</abp-card-title>
+                </abp-row>
+            </abp-card-header>
+            <abp-card-body>
+                <abp-row>
+                    <abp-column>
+                        <abp-input asp-for="ContentEmail.Name"></abp-input>
+                        <abp-input asp-for="ContentEmail.RecipientEmail"></abp-input>
+                        <abp-select asp-for="ContentEmail.SenderEmailId" asp-items="Model.SenderEmails"></abp-select>
+                        <abp-input asp-for="ContentEmail.Subject"></abp-input>
+                        <abp-input asp-for="ContentEmail.Body"></abp-input>
+                        <abp-input asp-for="ContentEmail.Attachment" type="file"></abp-input>
+                    </abp-column>
+                </abp-row>
+            </abp-card-body>
+            <abp-card-footer id="save" style="text-align:right">
+                <button data-busy-text="Sending..." class="btn btn-primary bkgrnd-cyan save-details" type="submit" name="save-details" style="text-align:left">@L["Send Now"]</button>
+                <a href="/Categories" class="btn btn-primary">@L["Schedule"]</a>
+                <a href="/Categories" class="btn btn-primary">@L["Save Draft"]</a>
+                <a href="/Categories" class="btn btn-secondary">@L["Cancel"]</a>
+            </abp-card-footer>
+        </abp-card>
+    </form>

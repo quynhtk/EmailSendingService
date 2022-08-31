@@ -1,0 +1,11 @@
+2077380107003
+Trần quốc huy
+K12lk1
+2117310205029
+Consolas, 'Courier New', monospace
+You can also open the Command Palette (Ctrl+Shift+P) and use the .NET: Generate Assets for Build and Debug command.
+dotnet new web -n ASP_SECCSION -f net5.0
+vandaott98@gmail.com
+anhnhoem15
+https://localhost:5001/Login-google
+pass github: Anhnhoem15

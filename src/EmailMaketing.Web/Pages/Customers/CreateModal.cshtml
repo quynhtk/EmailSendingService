@@ -1,0 +1,41 @@
+﻿@page
+@model EmailMaketing.Web.Pages.Customers.CreateModalModel
+@using EmailMaketing.Localization
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@inject IStringLocalizer<EmailMaketingResource> L
+@{
+    Layout = null;
+}
+
+<abp-card>
+    <form method="post" asp-page="/Customers/CreateModal" onsubmit="return validateform()">
+        <abp-modal>
+            <abp-modal-header></abp-modal-header>
+            <abp-modal-body>
+                <abp-input asp-for="Customer.UserName" />
+                <abp-row>
+                    <abp-column size-md="_12">
+                        @*<abp-input asp-for="Customer.Password" type="Password" />*@
+                        <label for="Movie_ReleaseDate">@L["Password"] <sup>*</sup></label>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" id="password" name="password" data-val="true" data-val-required="The Password field is required." value="">
+                            <span class="input-group-text bg-primary" id="spanShow" style="display:block" ><i class="fa fa-eye" aria-hidden="true" id="showEyes"></i></span>
+                            <span class="input-group-text" id="spanHiden" style="display:none"><i class="fa fa-eye-slash" aria-hidden="true" id="hideEyes"></i></span>
+                        </div>
+                         <span class="text-danger field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
+                    </abp-column>
+                    @*<abp-column size-md="_4" text-align="center">
+                    <input type="checkbox" id="showpass"> Show password</input>
+                    </abp-column>*@
+                </abp-row>
+                <abp-input asp-for="Customer.FullName" />
+                <abp-input asp-for="Customer.Email" />
+                <abp-input asp-for="Customer.PhoneNumber" />
+                <abp-Select asp-for="Customer.RoleID" asp-items="Model.Roles"></abp-Select>
+            </abp-modal-body>
+            <abp-modal-footer buttons="@(AbpModalButtons.Cancel| AbpModalButtons.Save)">
+            </abp-modal-footer>
+        </abp-modal>
+    </form>
+</abp-card>

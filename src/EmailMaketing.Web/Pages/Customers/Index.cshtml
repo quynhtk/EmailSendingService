@@ -1,0 +1,35 @@
+﻿@page
+@model EmailMaketing.Web.Pages.Customers.IndexModel
+@using EmailMaketing.Localization
+@using EmailMaketing.Permissions
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Authorization
+@inject IStringLocalizer<EmailMaketingResource> L
+@inject IAuthorizationService AuthorizationService
+@section scripts
+{
+    <abp-script src="/Pages/Customers/Index.js" />
+}
+<link rel="stylesheet" href="/style.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+<abp-card>
+     <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["Customer"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-end">
+                 @if (await AuthorizationService.IsGrantedAsync(EmailMaketingPermissions.Customers.Create))
+                {
+                <abp-button id="NewCustomerButton"
+                            text="@L["New Customer"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="CustomerTable"></abp-table>
+    </abp-card-body>
+</abp-card>

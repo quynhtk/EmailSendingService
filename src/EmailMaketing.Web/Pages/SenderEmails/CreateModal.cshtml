@@ -1,0 +1,28 @@
+﻿@page
+@model EmailMaketing.Web.Pages.SenderEmails.CreateModalModel
+@using Microsoft.Extensions.Localization
+@using EmailMaketing.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@inject IStringLocalizer<EmailMaketingResource> L
+@{
+    Layout = null;
+}
+
+<abp-card>
+    <form method="post" asp-page="/SenderEmails/CreateModal">
+        <abp-modal>
+            <abp-modal-header>@L["New Sender Email"].Value</abp-modal-header>
+            <abp-modal-body>
+                <div>
+                    <label>Email <sup>*</sup></label>
+                        <input id="emailinput" type="text" class="form-control" asp-for="SenderEmail.Email" placeholder="example@abc.com"/>
+                </div>
+                <div>
+                    <label>@L["Password"] <sup>*</sup></label>
+                        <input id="passwordinput" type="text" class="form-control" asp-for="SenderEmail.Password"/>
+                </div>
+            </abp-modal-body>
+            <abp-modal-footer buttons="@(AbpModalButtons.Cancel| AbpModalButtons.Save)"></abp-modal-footer>
+        </abp-modal>
+    </form>
+</abp-card>
